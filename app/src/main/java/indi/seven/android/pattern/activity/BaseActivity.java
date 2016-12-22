@@ -14,14 +14,12 @@ public abstract class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityManager.getInstance().addActivity(getActivityName(),this);
+        ActivityManager.getInstance().push(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ActivityManager.getInstance().removeActivity(getActivityName());
+        ActivityManager.getInstance().pop(this);
     }
-
-    protected abstract String getActivityName();
 }
