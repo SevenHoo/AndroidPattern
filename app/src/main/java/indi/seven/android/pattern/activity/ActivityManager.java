@@ -6,7 +6,7 @@ import android.util.Log;
 import java.util.Stack;
 
 /**
- * Description: TODO <br/>
+ * Description: Manage all activities in the application. <br/>
  * Date: 2016/12/18 <br/>
  *
  * @author mr.hoo7793@gmail.com
@@ -48,8 +48,10 @@ public class ActivityManager {
      */
     public boolean isTop(Activity activity){
         if(activity != null){
-            Activity top = mActivityStack.peek();
-            return (activity == top);
+            if(!mActivityStack.isEmpty()){
+                Activity top = mActivityStack.peek();
+                return (activity == top);
+            }
         }
         return false;
     }
