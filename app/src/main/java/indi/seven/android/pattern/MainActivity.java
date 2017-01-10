@@ -1,6 +1,5 @@
 package indi.seven.android.pattern;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import indi.seven.android.pattern.activity.BaseActivity;
@@ -14,5 +13,5 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    
+
 }

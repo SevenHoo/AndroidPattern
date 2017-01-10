@@ -2,6 +2,7 @@ package indi.seven.android.pattern.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 /**
  * Description: TODO <br/>
@@ -11,15 +12,18 @@ import android.os.Bundle;
  */
 public abstract class BaseActivity extends Activity {
 
+    private static final String TAG = BaseActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityManager.getInstance().push(this);
+        ActivityManager.getInstance().add(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ActivityManager.getInstance().pop(this);
+        ActivityManager.getInstance().remove(this);
+        Log.d(TAG,this.getClass().getSimpleName() + " onDestroy.");
     }
 }
